@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('patients', function (Blueprint $table) {
+        Schema::create('intergration_mediator', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('patient_id'); // Custom primary key
             $table->string('gender');
-            $table->date('date_of_birth');
+            $table->string('diagnosis');
             $table->integer('age');
+            $table->string('phone');
+            $table->string('provider_phone');
+            $table->dateTime('date_time');
             $table->integer('file_number');
             $table->string('diagnosis_record');
-
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_patient');
+        Schema::dropIfExists('intergration_mediator');
     }
 };
